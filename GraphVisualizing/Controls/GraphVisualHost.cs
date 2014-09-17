@@ -43,15 +43,15 @@ namespace GraphVisualizing.Controls
         /// <param name="v"></param>
         protected void DeleteVisual(GraphVisual v) { _visuals.Remove(v); }
 
+        #region Clicking
+
         /// <summary>Проверяет попадание мыши по элементу карты</summary>
-        public GraphVisual HitVisual(Point point)
-        {
-            return VisualTreeHelper.HitTest(this, point).VisualHit as GraphVisual;
-        }
+        public GraphVisual HitVisual(Point point) { return VisualTreeHelper.HitTest(this, point).VisualHit as GraphVisual; }
 
         private IMouseEventReceiver SafeGetMouseEventReceiver(GraphVisual Visual) { return Visual != null ? Visual.MouseEventReceiver : null; }
 
         private IMouseEventReceiver _mouseMoveOn;
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             var newMouseMoveOnElement = SafeGetMouseEventReceiver(HitVisual(e.GetPosition(this)));
@@ -67,6 +67,7 @@ namespace GraphVisualizing.Controls
 
         private MouseButton? _clickButton;
         private IMouseEventReceiver _mouseDownOn;
+
         protected override void OnMouseDown(MouseButtonEventArgs e)
         {
             _clickButton = e.ChangedButton;
@@ -87,5 +88,8 @@ namespace GraphVisualizing.Controls
             _clickButton = null;
             base.OnMouseUp(e);
         }
+
+        #endregion
+
     }
 }

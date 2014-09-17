@@ -60,11 +60,6 @@ namespace GraphVisualizing.Model
 
         public Boolean IsMouseOver { get; private set; }
 
-        public static GuidelineSet ScreenGuidelineSet
-        {
-            get { return _screenGuidelineSet; }
-        }
-
         public virtual void OnMouseClick(MouseButtonEventArgs ChangedButton) { }
         public virtual void OnMouseMove(MouseEventArgs MouseEventArgs) { }
         public virtual void OnMouseEnter(MouseEventArgs MouseEventArgs) { IsMouseOver = true; }

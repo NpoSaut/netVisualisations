@@ -47,6 +47,7 @@
     <Compile Include="Controls\NumericGraphView.cs" />
     <Compile Include="GraphProviders\GP.cs" />
     <Compile Include="GraphProviders\IGraphProvider.cs" />
+    <Compile Include="Model\HorizontalAxisElement.cs" />
     <Compile Include="Projection\IDoubleConverter.cs" />
     <Compile Include="Projection\IProjector.cs" />
     <Compile Include="Model\GraphElement.cs" />
