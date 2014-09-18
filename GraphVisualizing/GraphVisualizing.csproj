@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Controls\GraphViewBase.cs" />
     <Compile Include="Controls\NumericGraphView.cs" />
+    <Compile Include="Controls\TimeGraphView.cs" />
     <Compile Include="GraphProviders\GP.cs" />
     <Compile Include="GraphProviders\IGraphProvider.cs" />
     <Compile Include="Model\HorizontalAxisElement.cs" />

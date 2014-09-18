@@ -25,7 +25,14 @@ namespace GraphVisualizing.Projection
                 -ScaleY * (_yConverter.GetDoubleValue(y) - _yConverter.GetDoubleValue(Y0)));
         }
 
-        public TX GetX(double ScreenX) { return _xConverter.GetTypedValue((ScreenX + _xConverter.GetDoubleValue(X0)) / ScaleX); }
+
+        public TX GetX(double ScreenX)
+        {
+            double onScreenX0 = _xConverter.GetDoubleValue(X0);
+            double shiftedScaledValue = ScreenX / ScaleX + onScreenX0;
+            return _xConverter.GetTypedValue(shiftedScaledValue);
+        }
+
         public TY GetY(double ScreenY) { return _yConverter.GetTypedValue((ScreenY + _yConverter.GetDoubleValue(Y0)) / ScaleY); }
     }
 }

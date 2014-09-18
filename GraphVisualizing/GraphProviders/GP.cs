@@ -5,23 +5,23 @@ using GraphVisualizing.Model;
 
 namespace GraphVisualizing.GraphProviders
 {
-    public class GP : IGraphProvider<double, double>
+    public class GP<TX, TY> : IGraphProvider<TX, TY> where TX : IComparable<TX>
     {
-        public GP(Func<double, double> F, Pen GraphPen)
+        public GP(Func<TX, TY> F, Pen GraphPen)
         {
             this.GraphPen = GraphPen;
             f = F;
         }
 
-        public Func<Double, Double> f { get; set; }
+        public Func<TX, TY> f { get; set; }
 
         public Pen GraphPen { get; set; }
 
-        public IEnumerable<GraphSegmentElement<double, double>> GetGraphSegments(Segment<double> OnSegment)
+        public IEnumerable<GraphSegmentElement<TX, TY>> GetGraphSegments(Segment<TX> OnSegment)
         {
             return new[]
                    {
-                       new LineSegment<double, double>(OnSegment, f(OnSegment.Start), f(OnSegment.End), GraphPen)
+                       new LineSegment<TX, TY>(OnSegment, f(OnSegment.Start), f(OnSegment.End), GraphPen)
                    };
         }
     }
